@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="slide" id="p1">
+            <div class="content first-content">
+              <div class="container-fluid">
+                {% for profile in prof %}
+                  <div class="col-md-3">
+                      <div class="author-image"><img src="{{ profile.imagem.url }}" alt="Author Image"></div>
+                  </div>
+                  <div class="col-md-9">
+                     
+                      <h2>{{ profile.nome }}</h2>
+                      <div id=""><p id="prof_p"> “{{ profile.frase_do_dia }}“</p></div>
+                      
+                      <div class="button"><a href="{% url 'bio' %}">Biografia</a></div>
+                      
+                  </div>
+                  {% endfor %}
+              </div>
+            </div>
+          </div>
+{% endblock content %}

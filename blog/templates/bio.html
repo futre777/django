@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="slide" >
+    <div class="content first-content">
+        <div class="pbio">
+            {% for profile in prof %}
+	            <div class="col-md-3">
+	                <div class="author-image"><img src="{{ profile.imagem_bio.url }}" alt="Author Image">
+	                </div>
+	            </div>
+	            <div class="col-md-9">
+	              	<p id="pbio">Francisco, João A.<br>
+	              	Jurista formado na universidade Católica de Angola e professor universitario. Especializado em lei internacional dos direitos humanos nas Universidades <a href="https://bjorkneshoyskole.no/english/">Bjorkenes</a> e <a href="http://www.uam.es/UAM/Home.htm?language=es">Autonoma de Madrid</a> e Lei do desenvolvimento em Africa na Universidade de Pretoria. <br><br>Nos últimos 5 anos tenho me dedicado a pesquisas de tópicos relacionados a Lei publica, Lei publica internacional, Direitos humanos, Desenvolvimento sustentavel, Lei Cibernética e ITs.<br><br>
+	              	PESQUISAS RECENTES<br>
+	              	&ensp;- O papel da regulamentação e das empresas estatais no desenvolvimento sustentável. <br>
+	                &ensp;- Lei cibérnetica - desenvolvimento de novas techologias. <br>
+	            	&ensp;- O desenvolvimento sustentável: Um dessafio na era global.<br>
+	            	&ensp;- Direito internacional e direito interno: análise do artigo 26 da Constituição da República.<br>
+	            	&ensp;- Biodiversidade no sistema jurídico angolano, uma análise de contexto.<br><br>
+	            	CONFERÊNCIA E PALESTRAS<br>
+	            	&ensp;- Atores do mercado sustentável para o comércio responsável, Universidade de Oslo. <br>
+	            	&ensp;- Princípio da Dignidade Humana, Teorias do Relativismo e Universalismo nos Direitos<br> &ensp;&ensp;Humanos (2018) Faculdade de Direito, Universidade Católica de Angola.</p>
+	            </div>
+	        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %} 

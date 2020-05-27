@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block content %}
+	<div class="slide" id="p3">
+            <div class="content fifth-content">
+                <div class="container-fluid">
+                    <div class="col-md-12">
+                        <div class="row">
+                                <div class="first-section">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="left-content">
+                                                    <h2 id="sms">Contacto</h2>
+                                                    {% for profile in prof %}
+                                                    <div id="cont">
+                                                        <div class="author-image"><img src="{{ profile.imagem.url }}" alt="Author Image"></div>
+                                                    </div>
+                                                    <div id="cont-detail">
+                                                        <table style="width:50%">
+                                                       
+                                                
+                                                          <tr>
+                                                            <td><i class="fa fa-user"></i></td>
+                                                            <td><em>{{ profile.nome }}</em></td>
+                                                          </tr>
+                                                          {% endfor %}
+                                                           {% for cont in contact %}
+                                                          <tr>
+                                                            <td><i class="fa fa-google-plus"></i></td>
+                                                            <td><em> {{ cont.email }} </em></td>
+                                                            
+                                                          </tr>
+                                                          <tr>
+                                                            <td><i class="fa fa-phone"></i></td>
+                                                            <td><em> {{ cont.numero }} </em></td>
+                                                          
+                                                          </tr>
+                                                        
+                                                        {% endfor %}
+                                                       </table>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="right-image">
+                                                	<h2 id="sms">Mensagem</h2>
+                                                     <form id="contact" method="POST">
+								                           {% csrf_token %}   
+								                            <div class="row">
+									                                <div class="col-md-12">
+									                                  <fieldset>
+									                                   {{ form.nome }}
+									                                  </fieldset>
+									                                </div>
+									                                <div class="col-md-12">
+									                                  <fieldset>
+									                                    {{ form.email }}
+									                                  </fieldset>
+									                                </div>
+									                                <div class="col-md-12">
+									                                  <fieldset>
+									                                    {{ form.mensagem }}
+									                                  </fieldset>
+									                                </div>
+									                                <div class="col-md-12">
+									                                  <fieldset>
+									                                    <button type="submit" id="form-submit" class="btn">Enviar</button>
+									                                  </fieldset>
+								                                	</div>
+								                            </div>
+								                       </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+{% endblock content %}
+

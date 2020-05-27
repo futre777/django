@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="slide" id="p3">
+            <div class="content third-content" >
+                <div class="container-fluid">
+                    <div class="col-md-12">
+                        <div class="row">
+                            {% for post in posts %}
+                                <div class="first-section">  
+                                    <div class="container-fluid">
+                                        <div id="space" class="row">
+                                            <div class="col-md-6">
+                                                <h2>{{ post.titulo }}</h2>
+                                                <div class="left-content">
+                                                    
+                                                    {% if post.referencia == "http://none.com" %}
+                                                        {% if post.ficheiro == "none" %}
+                                                            {% if post.abstracto|length > 657 %}
+                                                                <p>{{ post.abstracto|truncatewords:100 }}</p>
+                                                                <div class="button">
+                                                                    <a href="{% url 'pid' post.id %}" >Continua a Ler</a>     
+                                                                </div>
+                                                            {% else %}
+                                                                <p>{{ post.abstracto }}</p> 
+                                                            {% endif %}
+                                                        {% else %}
+                                                            {% if post.abstracto|length > 657 %}
+                                                                <p>{{ post.abstracto|truncatewords:100 }}</p>
+                                                                <div class="button">
+                                                                    <a href="{% url 'pid' post.id %}" >Continua a Ler</a>     
+                                                                </div>
+                                                            {% else %}
+                                                                <p>{{ post.abstracto }}</p>
+                                                                <div class="button"><a target="_blank" href="{% url 'home'  %}media/{{post.ficheiro}}" >Continuar a Ler</a></div> 
+                                                            {% endif %}
+                                                        {%endif%}        
+                                                    {% else %}
+                                                        {% if post.ficheiro == "none" %}
+                                                            {% if post.abstracto|length > 657 %}
+                                                                <p>{{ post.abstracto|truncatewords:100 }}</p>
+                                                                <div class="button">
+                                                                    <a href="{% url 'pid' post.id %}" >Continua a Ler</a> 
+                                                                    <a target="_blank" href="{{ post.referencia }}" >Visitar</a>
+                                                                </div>
+                                                            {% else %}
+                                                                <p>{{ post.abstracto }}</p>
+                                                                <div class="button">
+                                                                    <a target="_blank" href="{{ post.referencia }}" >Visitar</a>     
+                                                                </div>
+                                                            {% endif %}
+                                                        
+                                                        {% else %}
+                                                            <p>{{ post.abstracto|truncatewords:100 }}</p>
+                                                            <div class="button">
+                                                              <a target="_blank" href="{% url 'home'  %}media/{{post.ficheiro}}" >Continuar a Ler</a> 
+                                                            </div>
+                                                            <div class="button">
+                                                                    <a target="_blank" href="{{ post.referencia }}" >Visitar</a>     
+                                                             </div> 
+
+                                                        {% endif %}           
+                                                    {% endif %}     
+                                                </div>
+                                            </div>    
+                                            <div id="bio_img" class="col-md-6">
+                                                <div class="right-image">
+                                                    <img src="{{ post.imagem.url }}" alt="first service">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}     
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock content %}        

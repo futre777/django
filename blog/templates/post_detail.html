@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+	<div class="slide" id="p3">
+	            <div class="content second-content">
+	                <div class="container-fluid">
+	                    <div class="col-md-6">
+	                        <div class="left-content">
+	                            <h2>{{ object.titulo }}</h2>
+	                            <p> {{ object.abstracto }}</p>
+	                            <div class="button">
+                                    <a href="{% url 'pub' %}" >Voltar</a>     
+                                </div>
+	                      </div>
+	                    </div>
+	                    <div id="bio_img" class="col-md-6">
+	                        <div class="right-image">
+	                            <img src="{{ object.imagem.url }}" alt="imagem">
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	 </div>
+{% endblock content %}
